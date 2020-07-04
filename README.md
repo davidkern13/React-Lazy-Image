@@ -1,12 +1,14 @@
-# React-Lazy-Image
+## React-Lazy-Image
 
-Import
+- Copy the code to your project and follow next steps to get result.
+
+Import the lazy image in component
 
 ```
 import LazyImage from "./LazyImage";
 ```
 
-Render
+Use in render of component
 
 ```
 <LazyImage unloadedSrc={Error} src={Image} alt={`react`} />
