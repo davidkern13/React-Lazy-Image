@@ -1,4 +1,4 @@
-![](https://img.icons8.com/material/24/#3498DB/image.png") ## React-Lazy-Image
+![React-Lazy-Image](https://img.icons8.com/material/24/#3498DB/image.png")   
  
 #### Copy the code to your project and follow next steps to get result.
 
