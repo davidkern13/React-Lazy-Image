@@ -1,4 +1,4 @@
-## React-Lazy-Image
+![](https://ibb.co/Ns37VNX)
 
 #### Copy the code to your project and follow next steps to get result.
 
