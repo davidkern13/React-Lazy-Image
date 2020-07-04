@@ -1,4 +1,4 @@
-![](https://ibb.co/Ns37VNX)
+![](https://i.ibb.co/DtbLVMN/Purple-and-White-Math-Tutor-Bordered-Linked-In-Banner.png)
 
 #### Copy the code to your project and follow next steps to get result.
 
