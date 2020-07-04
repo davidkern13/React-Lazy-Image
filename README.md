@@ -1,4 +1,4 @@
-[](https://icons8.com/icon/78741/full-image) ## React-Lazy-Image
+[](https://icons8.com/icon/78741/full-image)
 
 #### Copy the code to your project and follow next steps to get result.
 
