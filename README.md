@@ -1,2 +1,13 @@
 # React-Lazy-Image
-Created with CodeSandbox
+
+Import
+
+```
+import LazyImage from "./LazyImage";
+```
+
+Render
+
+```
+<LazyImage unloadedSrc={Error} src={Image} alt={`react`} />
+```
