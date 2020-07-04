@@ -19,3 +19,9 @@ import LazyImage from "./LazyImage";
 ```
 <LazyImage unloadedSrc={Error} src={Image} alt={`react`} />
 ```
+
+Props
+
+| unloadedSrc  | src | alt | 
+| ------------- | ------------- | ------------- |
+| String  | String  | String  |
