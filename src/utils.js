@@ -4,10 +4,8 @@
  * @param {string} src - src of image
  * @returns {string} - type of image orientation
  */
-export const imageOrientation = src => {
-  let orientation,
-    img = new Image();
-  img.src = src;
+export const imageOrientation = img => {
+  let orientation;
 
   if (img.naturalWidth > img.naturalHeight) {
     orientation = "landscape";
