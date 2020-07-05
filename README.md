@@ -41,7 +41,7 @@ const MyLazyImage = ({ image, errorImage }) =>
       <LazyImage
         unloadedSrc={errorImage}
         src={image}
-        alt={`react`}
+        alt={`image`}
         beforeLoad={beforeLoadImage}
         afterLoad={afterLoadImage}
         orientation={orientationImage}
