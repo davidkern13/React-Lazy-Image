@@ -72,8 +72,8 @@ export default MyLazyImage;
 | errorLoad  | Function  |   | The function returns an error when the image failed to load. | ```error``` |
 | delayTime  | Number  | 300  | Delay to load image. | |
 | decoding  | String  | "async"  |   | |
-| loading  | String  | "lazy"  |   | |
-| srcStyle  | String  |   | Custom ```classStyle``` of current image  | |
-| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of current image  | |
+| loading  | String  | "lazy"  | Pass to props ```lazy``` or ```eager```.  | |
+| srcStyle  | String  |   | Custom ```classStyle``` of current image.  | |
+| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of current image.  | |
 
 
