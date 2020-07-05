@@ -73,8 +73,8 @@ export default MyLazyImage;
 | delayTime  | Number  | 300  | Delay to load image. |
 | decoding  | String  | "async"  |   |
 | loading  | String  | "lazy"  |   |
-| srcStyle  | String  |   | Css class of current image  |
-| unloadedSrcStyle  | String  |   | Css class of current image  |
+| srcStyle  | String  |   | Custom ```classStyle``` of current image  |
+| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of current image  |
 
 #### Events
 
