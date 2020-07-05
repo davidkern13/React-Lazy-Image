@@ -18,7 +18,7 @@
 import React from 'react';
 import LazyImage from "./LazyImage";
  
-const MyLazyImage = ({ image }) =>
+const MyLazyImage = ({ image, errorImage }) =>
 
   const afterLoadImage = () => {
     console.log("afterLoadImage");
@@ -39,8 +39,8 @@ const MyLazyImage = ({ image }) =>
   return (
     <div>
       <LazyImage
-        unloadedSrc={ErrorImage}
-        src={Image}
+        unloadedSrc={errorImage}
+        src={image}
         alt={`react`}
         beforeLoad={beforeLoadImage}
         afterLoad={afterLoadImage}
