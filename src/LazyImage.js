@@ -16,7 +16,11 @@ function LazyImage(props) {
     afterLoad,
     orientation,
     errorLoad,
-    delayTime = 300
+    delayTime = 300,
+    decoding = "async",
+    loading = "lazy",
+    srcStyle,
+    unloadedSrcStyle
   } = props;
 
   useEffect(() => {
@@ -25,6 +29,10 @@ function LazyImage(props) {
     }
 
     let img = new Image();
+
+    img.decoding = decoding;
+    img.loading = loading;
+
     img.onload = () => {
       setLoaded(true);
       if (afterLoad) {
@@ -57,9 +65,9 @@ function LazyImage(props) {
   return (
     <div className={"image-wrap"}>
       {error || !loaded ? (
-        <Img src={unloadedSrc} alt={alt} classStyle={"error"} />
+        <Img src={unloadedSrc} alt={alt} classStyle={unloadedSrcStyle} />
       ) : (
-        <Img src={src} alt={alt} classStyle={checkLandscape(src)} />
+        <Img src={src} alt={alt} classStyle={srcStyle} />
       )}
     </div>
   );
@@ -73,7 +81,11 @@ LazyImage.propTypes = {
   afterLoad: PropTypes.func,
   orientation: PropTypes.func,
   errorLoad: PropTypes.func,
-  delayTime: PropTypes.number
+  delayTime: PropTypes.number,
+  decoding: PropTypes.string,
+  loading: PropTypes.string,
+  srcStyle: PropTypes.string,
+  unloadedSrcStyle: PropTypes.string
 };
 
 LazyImage.defaultProps = {
@@ -84,7 +96,11 @@ LazyImage.defaultProps = {
   beforeLoad: () => ({}),
   orientation: () => ({}),
   errorLoad: () => ({}),
-  delayTime: 300
+  delayTime: 300,
+  decoding: "",
+  loading: "",
+  srcStyle: "",
+  unloadedSrcStyle: ""
 };
 
 export default LazyImage;

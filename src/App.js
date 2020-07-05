@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "./styles.css";
 
 import LazyImage from "./LazyImage";
@@ -45,6 +45,10 @@ export default function App() {
         orientation={orientationImage}
         errorLoad={errorImage}
         delayTime={500}
+        decoding={"async"}
+        loading={"lazy"}
+        srcStyle={"lazy-image"}
+        unloadedSrcStyle={"error-image"}
       />
 
       <p>Broken image</p>

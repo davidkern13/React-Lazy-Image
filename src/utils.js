@@ -1,7 +1,7 @@
 /**
  * Returns image orientation
  * @function imageOrientation
- * @param {string} src - src of image
+ * @param {string} img - src of image
  * @returns {string} - type of image orientation
  */
 export const imageOrientation = img => {
