@@ -61,14 +61,14 @@ Props
 
 | Prop  | Type | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |
-| unloadedSrc  | String  |   | Unloaded Image  |
-| src  | String  |   | Image  |
+| unloadedSrc  | String  |   | Image src to display when image is not visible or loaded. |
+| src  | String  |   | Image src to display.  |
 | alt  | String  |   |   |
-| beforeLoad  | Function  |   |   |
-| afterLoad  | Function  |   |   |
-| orientation  | Function  |   |   |
-| errorLoad  | Function  |   |   |
-| delayTime  | Number  | 300  |   |
+| beforeLoad  | Function  |   | The function is called immediately before the image is loaded. |
+| afterLoad  | Function  |   | The function is called immediately after the image is uploaded. |
+| orientation  | Function  |   | The function returns the orientation of the image.  |
+| errorLoad  | Function  |   | The function returns an error when the image failed to load. |
+| delayTime  | Number  | 300  | Delay to load image. |
 | decoding  | String  | "async"  |   |
 | loading  | String  | "lazy"  |   |
 | srcStyle  | String  |   | Css class of current image  |
