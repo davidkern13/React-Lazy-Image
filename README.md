@@ -61,26 +61,19 @@ export default MyLazyImage;
 
 #### Props
 
-| Prop  | Type | Default | Description |
-| ------------- | ------------- | ------------- | ------------- |
-| unloadedSrc  | String  |   | Image src to display when image is not visible or loaded. |
-| src  | String  |   | Image src to display.  |
-| alt  | String  |   |   |
-| beforeLoad  | Function  |   | The function is called immediately before the image is loaded. |
-| afterLoad  | Function  |   | The function is called immediately after the image is uploaded. |
-| orientation  | Function  |   | The function returns the orientation of the image.  |
-| errorLoad  | Function  |   | The function returns an error when the image failed to load. |
-| delayTime  | Number  | 300  | Delay to load image. |
-| decoding  | String  | "async"  |   |
-| loading  | String  | "lazy"  |   |
-| srcStyle  | String  |   | Custom ```classStyle``` of current image  |
-| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of current image  |
+| Prop  | Type | Default | Description | Event |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| unloadedSrc  | String  |   | Image src to display when image is not visible or loaded. | |
+| src  | String  |   | Image src to display.  | |
+| alt  | String  |   |   | |
+| beforeLoad  | Function  |   | The function is called immediately before the image is loaded. | |
+| afterLoad  | Function  |   | The function is called immediately after the image is uploaded. | |
+| orientation  | Function  |   | The function returns the orientation of the image.  | ```landscape```,```portrait```,```even``` |
+| errorLoad  | Function  |   | The function returns an error when the image failed to load. | |
+| delayTime  | Number  | 300  | Delay to load image. | |
+| decoding  | String  | "async"  |   | |
+| loading  | String  | "lazy"  |   | |
+| srcStyle  | String  |   | Custom ```classStyle``` of current image  | |
+| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of current image  | |
 
-#### Events
-
-- Events of ```orientationImage``` function
-
-| event | event | event |
-| :---         |     :---:      |          ---: |
-| landscape   | portrait     | even    |
 
