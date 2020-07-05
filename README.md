@@ -75,3 +75,12 @@ export default MyLazyImage;
 | loading  | String  | "lazy"  |   |
 | srcStyle  | String  |   | Css class of current image  |
 | unloadedSrcStyle  | String  |   | Css class of current image  |
+
+#### Events
+
+- Events of ```orientationImage``` function
+
+|  |  |  |
+| :---         |     :---:      |          ---: |
+| landscape   | portrait     | even    |
+
