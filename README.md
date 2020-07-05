@@ -81,3 +81,8 @@ export default MyLazyImage;
 - ```sync```: Decode the image synchronously for atomic presentation with other content.
 - ```async```: Decode the image asynchronously to reduce delay in presenting other content.
 - ```auto```: Default mode, which indicates no preference for the decoding mode. The browser decides what is best for the user.
+
+##### Prop loading
+
+- ```eager```: The default behavior, eager tells the browser to load the image as soon as the <img> element is processed.
+- ```lazy```: Tells the user agent to hold off on loading the image until the browser estimates that it will be needed imminently. For instance, if the user is scrolling through the document, a value of lazy will cause the image to only be loaded shortly before it will appear in the window's
