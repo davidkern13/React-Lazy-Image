@@ -17,9 +17,6 @@ import React from 'react';
 import LazyImage from "./LazyImage";
  
 const LazyImage = ({ image }) =>
-  const mystyle = {
-    width: "100%"
-  };
 
   const afterLoadImage = () => {
     console.log("afterLoadImage");
