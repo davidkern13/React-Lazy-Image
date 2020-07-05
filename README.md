@@ -76,8 +76,8 @@ export default MyLazyImage;
 | srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
-- Prop decoding
+##### Prop decoding
 
-```sync```: Decode the image synchronously for atomic presentation with other content.
-```async```: Decode the image asynchronously to reduce delay in presenting other content.
-```auto```: Default mode, which indicates no preference for the decoding mode. The browser decides what is best for the user.
+- ```sync```: Decode the image synchronously for atomic presentation with other content.
+- ```async```: Decode the image asynchronously to reduce delay in presenting other content.
+- ```auto```: Default mode, which indicates no preference for the decoding mode. The browser decides what is best for the user.
