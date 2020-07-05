@@ -1,8 +1,8 @@
 ![](https://i.ibb.co/DtbLVMN/Purple-and-White-Math-Tutor-Bordered-Linked-In-Banner.png)
 
-<p align="center">
+<h3 align="center">
  Loading a lazy image with control of the events and display replacement image is not visible or loaded.
-</p>
+</h3>
 
 ### [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
 
