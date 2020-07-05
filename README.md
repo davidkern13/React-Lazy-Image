@@ -80,7 +80,7 @@ export default MyLazyImage;
 
 - Events of ```orientationImage``` function
 
-|  |  |  |
+| event | event | event |
 | :---         |     :---:      |          ---: |
 | landscape   | portrait     | even    |
 
