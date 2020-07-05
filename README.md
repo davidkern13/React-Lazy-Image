@@ -1,16 +1,20 @@
 ![](https://i.ibb.co/DtbLVMN/Purple-and-White-Math-Tutor-Bordered-Linked-In-Banner.png)
 
 <p align="center">
-Check the codesandbox example copy the code to your project and follow next steps to get result.
+ Loading a lazy image with control of the events and display replacement image is not visible or loaded.
 </p>
 
+### [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
 
+### Features
+
+- Includes one component what containing 2 props of images, ```src``` for display and ```unloadedSrc``` if image is not visible or loaded.
+- ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad``` events.
+- custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
 
 <hr/>
 
 ### React-Lazy-Image usage
-
-[Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
 
 ```
 import React from 'react';
