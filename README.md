@@ -18,7 +18,7 @@
 import React from 'react';
 import LazyImage from "./LazyImage";
  
-const MyLazyImage = ({ image, errorImage }) =>
+const MyLazyImage = ({ image, errorImage }) => {
 
   const afterLoadImage = () => {
     console.log("afterLoadImage");
