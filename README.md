@@ -2,7 +2,7 @@
 
 ### Loading a lazy image with control of the events and display replacement image is not visible or loaded.
 
-### [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
+### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
 
 ### Features
 
