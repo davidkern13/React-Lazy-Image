@@ -69,7 +69,7 @@ export default MyLazyImage;
 | beforeLoad  | Function  |   | The function is called immediately before the image is loaded. | |
 | afterLoad  | Function  |   | The function is called immediately after the image is uploaded. | |
 | orientation  | Function  |   | The function returns the orientation of the image.  | ```landscape```,```portrait```,```even``` |
-| errorLoad  | Function  |   | The function returns an error when the image failed to load. | |
+| errorLoad  | Function  |   | The function returns an error when the image failed to load. | ```error``` |
 | delayTime  | Number  | 300  | Delay to load image. | |
 | decoding  | String  | "async"  |   | |
 | loading  | String  | "lazy"  |   | |
