@@ -16,7 +16,7 @@ Check the codesandbox example copy the code to your project and follow next step
 import React from 'react';
 import LazyImage from "./LazyImage";
  
-const LazyImage = ({ image }) =>
+const MyLazyImage = ({ image }) =>
 
   const afterLoadImage = () => {
     console.log("afterLoadImage");
@@ -54,7 +54,7 @@ const LazyImage = ({ image }) =>
   );
 }
 
-export default LazyImage;
+export default MyLazyImage;
 ```
 
 Props
