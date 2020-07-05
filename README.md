@@ -84,5 +84,5 @@ export default MyLazyImage;
 
 ##### Prop loading
 
-- ```eager```: The default behavior, eager tells the browser to load the image as soon as the <img> element is processed.
 - ```lazy```: Tells the user agent to hold off on loading the image until the browser estimates that it will be needed imminently. For instance, if the user is scrolling through the document, a value of lazy will cause the image to only be loaded shortly before it will appear in the window's
+- ```eager```: The default behavior, eager tells the browser to load the image as soon as the <img> element is processed.
