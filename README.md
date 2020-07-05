@@ -59,7 +59,7 @@ const MyLazyImage = ({ image }) =>
 export default MyLazyImage;
 ```
 
-Props
+#### Props
 
 | Prop  | Type | Default | Description |
 | ------------- | ------------- | ------------- | ------------- |
