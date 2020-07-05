@@ -73,7 +73,7 @@ export default MyLazyImage;
 | delayTime  | Number  | 300  | Delay to load image. | |
 | decoding  | String  | "async"  |   | |
 | loading  | String  | "lazy"  | Pass to props ```lazy``` or ```eager```.  | |
-| srcStyle  | String  |   | Custom ```classStyle``` of current image.  | |
-| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of current image.  | |
+| srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
+| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
 
