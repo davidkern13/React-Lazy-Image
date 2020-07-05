@@ -4,13 +4,13 @@
 Check the codesandbox example copy the code to your project and follow next steps to get result.
 </p>
 
-[Live demo (code)]()
+
 
 <hr/>
 
-
-
 ### React-Lazy-Image usage
+
+[Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
 
 ```
 import React from 'react';
