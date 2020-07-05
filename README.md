@@ -8,7 +8,7 @@ Check the codesandbox example copy the code to your project and follow next step
 
 
 
-- React-Lazy-Image usage
+### React-Lazy-Image usage
 
 ```
 import React from 'react';
