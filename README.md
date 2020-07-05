@@ -8,20 +8,69 @@ Check the codesandbox example copy the code to your project and follow next step
 
 
 
-- Import the lazy image in your component
+- React-Lazy-Image usage
 
 ```
+import React from 'react';
 import LazyImage from "./LazyImage";
+ 
+const LazyImage = ({ image }) =>
+  const mystyle = {
+    width: "100%"
+  };
+
+  const afterLoadImage = () => {
+    console.log("afterLoadImage");
+  };
+
+  const beforeLoadImage = () => {
+    console.log("beforeLoadImage");
+  };
+
+  const orientationImage = e => {
+    console.log("orientationImage", e);
+  };
+
+  const errorImage = e => {
+    console.log("error", e);
+  };
+
+  return (
+    <div>
+      <LazyImage
+        unloadedSrc={ErrorImage}
+        src={Image}
+        alt={`react`}
+        beforeLoad={beforeLoadImage}
+        afterLoad={afterLoadImage}
+        orientation={orientationImage}
+        errorLoad={errorImage}
+        delayTime={500}
+        decoding={"async"}
+        loading={"lazy"}
+        srcStyle={"lazy-image"}
+        unloadedSrcStyle={"error-image"}
+      />
+    </div>
+  );
+}
+
+export default LazyImage;
 ```
 
-- Use in render method of component
+Props
 
-```
-<LazyImage unloadedSrc={Error} src={Image} alt={`react`} />
-```
-
-Props of LazyImage
-
-| unloadedSrc  | src | alt | 
-| ------------- | ------------- | ------------- |
-| String  | String  | String  |
+| Prop  | Type | Default | Description |
+| ------------- | ------------- | ------------- | ------------- |
+| unloadedSrc  | String  |   | Unloaded Image  |
+| src  | String  |   | Image  |
+| alt  | String  |   |   |
+| beforeLoad  | Function  |   |   |
+| afterLoad  | Function  |   |   |
+| orientation  | Function  |   |   |
+| errorLoad  | Function  |   |   |
+| delayTime  | Number  | 300  |   |
+| decoding  | String  | "async"  |   |
+| loading  | String  | "lazy"  |   |
+| srcStyle  | String  |   | Css class of current image  |
+| unloadedSrcStyle  | String  |   | Css class of current image  |
