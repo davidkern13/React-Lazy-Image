@@ -71,8 +71,8 @@ export default MyLazyImage;
 | orientation  | Function  |   | The function returns the orientation of the image.  | ```landscape```,```portrait```,```even``` |
 | errorLoad  | Function  |   | The function returns an error when the image failed to load. | ```error``` |
 | delayTime  | Number  | 300  | Delay to load image. | |
-| decoding  | String  | "async"  | Props types ```sync```, ```async```, ```auto```  | |
-| loading  | String  | "lazy"  | Props types ```lazy```, ```eager```.  | |
+| decoding  | String  | "async"  | Name of the ```decoding``` props types to use ```sync```, ```async```, ```auto```  | |
+| loading  | String  | "lazy"  | Name of the ```loading``` props types to use ```lazy```, ```eager```.  | |
 | srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
