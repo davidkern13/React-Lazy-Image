@@ -79,7 +79,7 @@ export default MyLazyImage;
 | decoding  | String  | "async"  | Name of the ```decoding``` props types to use ```sync```, ```async```, ```auto```. read the next line below  how to use them  | |
 | loading  | String  | "lazy"  | Name of the ```loading``` props types to use ```lazy```, ```eager```. read the next line below  how to use them  | |
 | customStyle  | Object  | null  | Props customStyle style passed to inline of image.  | |
-| srcStyle  | Object  |   | Custom ```classStyle``` of ```src``` image.  | |
+| srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
 ##### Using prop decoding
