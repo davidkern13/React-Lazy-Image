@@ -1,6 +1,6 @@
 ![](https://i.ibb.co/DtbLVMN/Purple-and-White-Math-Tutor-Bordered-Linked-In-Banner.png)
 
-### ⚡ Loading a lazy image with control of the events and display replacement image is not visible or loaded and utils.
+### Loading a lazy image with control of the events and display replacement image is not visible or loaded and utils ⚡
 
 ### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
 
@@ -12,7 +12,7 @@
 
 <hr/>
 
-### React-Lazy-Image usage
+### ```LazyImage``` usage
 
 ```
 import React from 'react';

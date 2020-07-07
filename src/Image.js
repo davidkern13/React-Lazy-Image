@@ -1,18 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const mystyle = {
-  width: "100%"
-};
-
-const Img = ({ src = "", alt = "", classStyle = "" }) => (
-  <img src={src} alt={alt} className={classStyle} style={mystyle} />
+const Img = ({ src = "", alt = "", classStyle = "", loading, customStyle }) => (
+  <img src={src} alt={alt} className={classStyle} style={customStyle} loading={loading}/>
 );
 
 Img.propTypes = {
   src: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  classStyle: PropTypes.string
+  classStyle: PropTypes.string,
+  loading: PropTypes.string
+};
+
+
+Img.defaultProps = {
+  src: "",
+  alt: "",
+  classStyle: "",
+  loading: ""
 };
 
 export default Img;

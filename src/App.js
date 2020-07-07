@@ -11,8 +11,8 @@ const ErrorImage = "https://i.ibb.co/5Ykzw98/Lighter-District.png";
 const BrokenImage = "https://i.ibb.co/5Ykzw98/Ligh-District.png";
 
 export default function App() {
-  const mystyle = {
-    width: "100%"
+  const customStyle = {
+    width: "50px"
   };
 
   const afterLoadImage = () => {
@@ -32,7 +32,7 @@ export default function App() {
   };
 
   return (
-    <div className="App" style={mystyle}>
+    <div className="App">
       <h1>React Lazy Image Example</h1>
 
       <p>Lazy image</p>
@@ -47,6 +47,7 @@ export default function App() {
         delayTime={500}
         decoding={"async"}
         loading={"lazy"}
+        customStyle={customStyle}
         srcStyle={"lazy-image"}
         unloadedSrcStyle={"error-image"}
       />

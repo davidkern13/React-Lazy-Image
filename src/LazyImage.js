@@ -5,8 +5,12 @@ import Img from "./Image";
 import { imageOrientation } from "./utils";
 
 function LazyImage(props) {
+
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+
+  const DECODING = "async";
+  const LOADING = "lazy";
 
   let {
     src,
@@ -17,21 +21,21 @@ function LazyImage(props) {
     orientation,
     errorLoad,
     delayTime = 300,
-    decoding = "async",
-    loading = "lazy",
-    srcStyle,
-    unloadedSrcStyle
+    decoding = DECODING,
+    loading = LOADING,
+    customStyle,
+    srcStyleClass,
+    unloadedSrcStyleClass
   } = props;
+
+  let img = new Image();
 
   useEffect(() => {
     if (beforeLoad) {
       beforeLoad();
     }
-
-    let img = new Image();
-
-    img.decoding = decoding;
-    img.loading = loading;
+    
+    img.decoding = decoding || DECODING;
 
     img.onload = () => {
       setLoaded(true);
@@ -62,14 +66,18 @@ function LazyImage(props) {
     return imageOrientation(img);
   };
 
+  const getCustomStyle = style => {
+    return style ? style : null;
+  };
+
   return (
-    <div className={"image-wrap"}>
+    <>
       {error || !loaded ? (
-        <Img src={unloadedSrc} alt={alt} classStyle={unloadedSrcStyle} />
+        <Img src={unloadedSrc} loading={loading || LOADING} alt={alt} classStyle={unloadedSrcStyleClass} customStyle={getCustomStyle(customStyle)} />
       ) : (
-        <Img src={src} alt={alt} classStyle={srcStyle} />
+        <Img src={src} loading={loading || LOADING} alt={alt} classStyle={srcStyleClass} customStyle={getCustomStyle(customStyle)} />
       )}
-    </div>
+    </>
   );
 }
 
