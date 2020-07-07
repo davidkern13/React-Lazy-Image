@@ -20,7 +20,10 @@
 import React from 'react';
 import LazyImage from "./LazyImage";
  
-const MyLazyImage = ({ image, errorImage }) => {
+const App = () => {
+
+  const image = 'image.png';
+  const errorImage = 'error-image.png';
 
   const customStyle = {
     width: "50px"
@@ -63,7 +66,7 @@ const MyLazyImage = ({ image, errorImage }) => {
   );
 }
 
-export default MyLazyImage;
+export default App;
 ```
 
 #### Props
