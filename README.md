@@ -20,6 +20,10 @@ import LazyImage from "./LazyImage";
  
 const MyLazyImage = ({ image, errorImage }) => {
 
+  const customStyle = {
+    width: "50px"
+  };
+
   const afterLoadImage = () => {
     console.log("afterLoadImage");
   };
@@ -49,6 +53,7 @@ const MyLazyImage = ({ image, errorImage }) => {
         delayTime={500}
         decoding={"async"}
         loading={"lazy"}
+        customStyle={customStyle}
         srcStyle={"lazy-image"}
         unloadedSrcStyle={"error-image"}
       />
@@ -73,7 +78,8 @@ export default MyLazyImage;
 | delayTime  | Number  | 300  | Delay to load image. | |
 | decoding  | String  | "async"  | Name of the ```decoding``` props types to use ```sync```, ```async```, ```auto```. read the next line below  how to use them  | |
 | loading  | String  | "lazy"  | Name of the ```loading``` props types to use ```lazy```, ```eager```. read the next line below  how to use them  | |
-| srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
+| customStyle  | Object  | null  | Props customStyle style passed to inline of image.  | |
+| srcStyle  | Object  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
 ##### Using prop decoding
