@@ -1,8 +1,10 @@
 ![](https://i.ibb.co/DtbLVMN/Purple-and-White-Math-Tutor-Bordered-Linked-In-Banner.png)
 
-### Loading a lazy image with control of the events and display replacement image is not visible or loaded and utils ⚡
+### Loading lazy image with control of the events and display replacement image is not visible or loaded and utils.
 
-### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image)
+### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
+
+<hr/>
 
 ### Features
 
@@ -12,7 +14,7 @@
 
 <hr/>
 
-### ```LazyImage``` usage
+### :books: ```LazyImage``` usage
 
 ```
 import React from 'react';
@@ -79,7 +81,7 @@ export default MyLazyImage;
 | decoding  | String  | "async"  | Name of the ```decoding``` props types to use ```sync```, ```async```, ```auto```. read the next line below  how to use them  | |
 | loading  | String  | "lazy"  | Name of the ```loading``` props types to use ```lazy```, ```eager```. read the next line below  how to use them  | |
 | customStyle  | Object  | null  | Props customStyle style passed to inline of image.  | |
-| srcStyle  | Object  |   | Custom ```classStyle``` of ```src``` image.  | |
+| srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
 ##### Using prop decoding
