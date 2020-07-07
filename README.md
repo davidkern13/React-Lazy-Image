@@ -4,6 +4,8 @@
 
 ### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
 
+<hr/>
+
 ### Features
 
 - Includes one component what containing 2 props of images, ```src``` for image display and ```unloadedSrc``` if image is not visible or loaded.
