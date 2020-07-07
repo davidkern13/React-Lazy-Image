@@ -12,7 +12,7 @@
 
 <hr/>
 
-### ```LazyImage``` usage
+### :books: ```LazyImage``` usage
 
 ```
 import React from 'react';
