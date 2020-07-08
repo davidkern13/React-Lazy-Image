@@ -28,13 +28,12 @@ function LazyImage(props) {
     unloadedSrcStyleClass
   } = props;
 
-  let img = new Image();
-
   useEffect(() => {
     if (beforeLoad) {
       beforeLoad();
     }
     
+    let img = new Image();
     img.decoding = decoding || DECODING;
 
     img.onload = () => {
@@ -54,7 +53,7 @@ function LazyImage(props) {
       orientation(checkLandscape(img));
     }
     timeOut(img, delayTime);
-  });
+  }, []);
 
   const timeOut = (img, delayTime) => {
     setTimeout(function() {
