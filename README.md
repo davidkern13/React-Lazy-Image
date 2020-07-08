@@ -4,6 +4,8 @@
 
 ### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
 
+### Check [Live action](https://react-lazy-image.netlify.app/) ⚡
+
 <hr/>
 
 ### Features
