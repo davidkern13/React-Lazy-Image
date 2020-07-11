@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-
  
 const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, customStyle},  ref) => {
 

@@ -39,6 +39,8 @@ const LazyImage = (props) => {
 
     img.onload = () => {
       setLoaded(true);
+
+
       if (afterLoad) {
         afterLoad();
       }
@@ -53,14 +55,13 @@ const LazyImage = (props) => {
     if (orientation) {
       orientation(checkLandscape(img));
     }
-    timeOut(img, delayTime);
-  }, []);
 
-  const timeOut = (img, delayTime) => {
     setTimeout(function() {
       img.src = src;
     }, delayTime);
-  };
+    
+
+  }, [afterLoad, beforeLoad, decoding, delayTime, errorLoad, orientation, src]);
 
   const checkLandscape = img => {
     return imageOrientation(img);

@@ -21,7 +21,7 @@ const App = () => {
     return () => {
       apiRequest();
     };
-  }, []);
+  }, []); 
 
   const apiRequest = () =>{
     axios
