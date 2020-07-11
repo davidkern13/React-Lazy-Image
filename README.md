@@ -11,7 +11,7 @@
 ### Features
 
 - Includes one component what containing 2 props of images, ```src``` for image display and ```unloadedSrc``` if image is not visible or loaded.
-- ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad``` events.
+- ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef``` events.
 - custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
 
 <hr/>
@@ -78,6 +78,7 @@ export default App;
 | unloadedSrc  | String  |   | Image src to display when image is not visible or loaded. | |
 | src  | String  |   | Image src to display.  | |
 | alt  | String  |   |   | |
+| animationRef  | Function  |   | The function is called when image use ```ref```. | |
 | beforeLoad  | Function  |   | The function is called immediately before the image is loaded. | |
 | afterLoad  | Function  |   | The function is called immediately after the image is uploaded. | |
 | orientation  | Function  |   | The function returns the orientation of the image.  | ```landscape```,```portrait```,```even``` |
