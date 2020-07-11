@@ -155,7 +155,7 @@ const App = () => {
                   childRef={animationRef} 
                 />
               </li>
-              )
+            )
           })
         }
       </ul>
