@@ -89,6 +89,8 @@ export default App;
 | srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
+##### Check bellow how add Animation to LazyImage
+
 ##### Using prop decoding
 
 - ```sync```: Decode the image synchronously for atomic presentation with other content.
