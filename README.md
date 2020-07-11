@@ -2,17 +2,23 @@
 
 ### Loading lazy image with control of the events and display replacement image is not visible or loaded and utils.
 
-### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
+### Live code: [Codesandbox](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
 
-### Check [Live action](https://react-lazy-image.netlify.app/) ⚡
+### Live demo: [https://react-lazy-image.netlify.app](https://react-lazy-image.netlify.app) ⚡
+
+##### [❤️](https://github.com/davidkern13/React-Lazy-Image) it? ⭐️ it on [Github](https://github.com/davidkern13/React-Lazy-Image)
 
 <hr/>
 
 ### Features
 
-- Includes one component what containing 2 props of images, ```src``` for image display and ```unloadedSrc``` if image is not visible or loaded.
-- ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef``` events.
-- custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
+🖼 Includes component with props ```src``` for image display and ```unloadedSrc``` to detect image not visible or loaded.
+- Supports multiple function events ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef```.
+- Supports adding ```gsap``` animation.
+- Supports ```debounce``` effect.
+- Custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
+
+⚠️ Most modern browsers support
 
 <hr/>
 
@@ -57,7 +63,7 @@ const App = () => {
         afterLoad={afterLoadImage}
         orientation={orientationImage}
         errorLoad={errorImage}
-        delayTime={500}
+        delayTime={500} // Default is 300 (ms)
         decoding={"async"}
         loading={"lazy"}
         customStyle={customStyle}
@@ -89,6 +95,8 @@ export default App;
 | srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
+##### 📚 ```Check bellow how add Animation to LazyImage```
+
 ##### Using prop decoding
 
 - ```sync```: Decode the image synchronously for atomic presentation with other content.
@@ -102,7 +110,7 @@ export default App;
 
 <hr/>
 
-### :zap: ```List of LazyImage with Animation``` usage
+### 📚 ```List of LazyImage with Animation``` usage
 
 ```
 import React, { useState, useEffect } from "react";
@@ -131,20 +139,21 @@ const App = () => {
 
   const animationRef = (element) => { 
     gsap.from(element, { // add animation to element ref
-      duration:1,
+      duration: 1,
       autoAlpha: 0,
-      ease:'none',
-      delay:0.5
+      ease: 'none',
+      delay: 0.5,
+      webkitFilter: "blur(0.1)"
     })
   };
  
   return (
     <div className="App">
-      <ul id={'GridList'}>
+      <ul>
         {
           Array.isArray(images) && images.map((image, idx) => {
             return (
-              <li className={'grid-item'} key={idx}>
+              <li key={idx}>
                 <LazyImage
                   unloadedSrc={ErrorImage}
                   src={image.thumbnailUrl}
@@ -152,7 +161,7 @@ const App = () => {
                   childRef={animationRef} 
                 />
               </li>
-              )
+            )
           })
         }
       </ul>
@@ -167,4 +176,4 @@ export default App;
 
 | Prop  | Type | Default | Description | Event |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| animationRef  | Function  | null | The function is called when image use ```ref```. | element |
+| animationRef  | Function  |  | The function is called when image use ```ref```. | element |
