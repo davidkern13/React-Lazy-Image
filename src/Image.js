@@ -1,13 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
  
-const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, customStyle},  ref) => {
+const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, customStyle, noscript}, ref) => {
 
-  if(!Object.keys(ref).length){
-    return <img src={src} alt={alt} className={classStyle} style={customStyle} loading={loading} ref={ref}/> ;
-  }else{
-    return <img src={src} alt={alt} className={classStyle} style={customStyle} loading={loading}/>;
-  }
+  let refExist = !Object.keys(ref).length ? ref : null;
+
+  return (
+    <>
+      <img 
+        src={src} 
+        alt={alt} 
+        className={classStyle} 
+        style={customStyle} 
+        loading={loading} 
+        ref={refExist}
+      /> 
+
+      {/* For SEO and JavaScript unavailable */}
+
+      {noscript &&
+        <noscript>
+          <img
+            src={src}
+            alt={alt} 
+            className={classStyle}
+          />
+        </noscript>
+      }
+      
+    </>
+  );
+
 
 });
 
@@ -26,4 +49,4 @@ Img.defaultProps = {
   loading: ""
 };
 
-export default Img;
+export default React.memo(Img);

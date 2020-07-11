@@ -24,6 +24,7 @@ const LazyImage = (props) => {
     delayTime = 300,
     decoding = DECODING,
     loading = LOADING,
+    noscript,
     customStyle,
     srcStyleClass,
     unloadedSrcStyleClass
@@ -40,9 +41,12 @@ const LazyImage = (props) => {
     img.onload = () => {
       setLoaded(true);
 
-
       if (afterLoad) {
         afterLoad();
+      }
+
+      if (orientation) {
+        orientation(checkLandscape(img));
       }
     };
     img.onerror = () => {
@@ -51,10 +55,6 @@ const LazyImage = (props) => {
         errorLoad();
       }
     };
-
-    if (orientation) {
-      orientation(checkLandscape(img));
-    }
 
     setTimeout(function() {
       img.src = src;
@@ -70,12 +70,32 @@ const LazyImage = (props) => {
     return style ? style : null;
   };
 
+  const refitem = el => {
+    childRef(el);
+  };
+
   return (
     <>
       {error || !loaded ? (
-        <Img src={unloadedSrc} loading={loading || LOADING} alt={alt} classStyle={unloadedSrcStyleClass} customStyle={getCustomStyle(customStyle)} ref={childRef || null}/>
+        <Img 
+          src={unloadedSrc}
+          loading={loading || LOADING}
+          alt={alt}
+          classStyle={unloadedSrcStyleClass}
+          customStyle={getCustomStyle(customStyle)}
+          ref={refitem || null}
+          noscript={noscript}
+        />
       ) : (
-        <Img src={src} loading={loading || LOADING} alt={alt} classStyle={srcStyleClass} customStyle={getCustomStyle(customStyle)} ref={childRef || null}/>
+        <Img 
+          src={src}
+          loading={loading || LOADING}
+          alt={alt}
+          classStyle={srcStyleClass}
+          customStyle={getCustomStyle(customStyle)}
+          ref={refitem || null}
+          noscript={noscript}
+        />
       )}
     </>
   );
@@ -101,7 +121,7 @@ LazyImage.defaultProps = {
   src: "",
   unloadedSrc: "",
   alt: "",
-  childRef: () => ({}),
+  childRef: () => null,
   afterLoad: () => ({}),
   beforeLoad: () => ({}),
   orientation: () => ({}),

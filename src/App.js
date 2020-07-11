@@ -25,34 +25,40 @@ const App = () => {
 
   const apiRequest = () =>{
     axios
-      .get("https://jsonplaceholder.typicode.com/photos/")
-      .then(response => setImages(response.data.slice(0, 8)));
+      .get("https://picsum.photos/v2/list?page=1&limit=20")
+      .then(response => setImages(response.data));
   }
 
   const animationRef = (element) => {
-    gsap.from(element, {
-      duration:1,
-      autoAlpha: 0,
-      ease:'none',
-      delay:0.3,
-      webkitFilter:"blur(0.1)"
-    })
+    if(element?.src && element?.src !== ErrorImage){
+      gsap.from(element, {
+        duration:1,
+        autoAlpha: 0,
+        ease:'none',
+        delay:0.3,
+        webkitFilter:"blur(0.1)"
+      })
+    }
   };
 
   const afterLoadImage = () => {
     // your code
+    
   };
 
   const beforeLoadImage = () => {
     // your code
+   
   };
 
   const orientationImage = e => {
     // your code
+  
   };
 
   const errorImage = e => {
     // your code
+    
   };
  
   return (
@@ -64,22 +70,23 @@ const App = () => {
               <li className={'grid-item'} key={idx}>
                 <LazyImage
                   unloadedSrc={ErrorImage}
-                  src={image.thumbnailUrl}
+                  src={image.download_url}
                   alt={`react`}
                   childRef={animationRef} 
                   beforeLoad={beforeLoadImage}
                   afterLoad={afterLoadImage}
                   orientation={orientationImage}
                   errorLoad={errorImage}
-                  delayTime={300}
+                  delayTime={0}
                   decoding={"async"}
                   loading={"lazy"}
+                  noscript={true}
                   customStyle={customStyle}
                   srcStyle={"lazy-image"}
                   unloadedSrcStyle={"error-image"}
                 />
               </li>
-              )
+            )
           })
         }
       </ul>
