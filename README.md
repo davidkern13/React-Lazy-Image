@@ -104,7 +104,7 @@ export default App;
 
 <hr/>
 
-### :zap: ```List of LazyImage with Animation``` usage
+### 📚 ```List of LazyImage with Animation``` usage
 
 ```
 import React, { useState, useEffect } from "react";
