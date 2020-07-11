@@ -131,10 +131,11 @@ const App = () => {
 
   const animationRef = (element) => { 
     gsap.from(element, { // add animation to element ref
-      duration:1,
+      duration: 1,
       autoAlpha: 0,
-      ease:'none',
-      delay:0.5
+      ease: 'none',
+      delay: 0.5,
+      webkitFilter: "blur(0.1)"
     })
   };
  
@@ -167,4 +168,4 @@ export default App;
 
 | Prop  | Type | Default | Description | Event |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| animationRef  | Function  | null | The function is called when image use ```ref```. | element |
+| animationRef  | Function  |  | The function is called when image use ```ref```. | element |
