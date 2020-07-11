@@ -22,10 +22,10 @@
 import React from 'react';
 import LazyImage from "./LazyImage";
 
+const image = 'image.png';
+const errorImage = 'error-image.png';
+  
 const App = () => {
-
-  const image = 'image.png';
-  const errorImage = 'error-image.png';
 
   const customStyle = {
     width: "50px"
@@ -109,7 +109,7 @@ import gsap from 'gsap'; // animation lib
 
 import LazyImage from "./LazyImage";
 
-import { ErrorImage } from './utils';
+const errorImage = 'error-image.png';
 
 const App = () => {
 
@@ -135,22 +135,6 @@ const App = () => {
       delay:0.5
     })
   };
-
-  const afterLoadImage = () => {
-    // your code
-  };
-
-  const beforeLoadImage = () => {
-    // your code
-  };
-
-  const orientationImage = e => {
-    // your code
-  };
-
-  const errorImage = e => {
-    // your code
-  };
  
   return (
     <div className="App">
@@ -164,16 +148,6 @@ const App = () => {
                   src={image.thumbnailUrl}
                   alt={`react`}
                   childRef={animationRef} 
-                  beforeLoad={beforeLoadImage}
-                  afterLoad={afterLoadImage}
-                  orientation={orientationImage}
-                  errorLoad={errorImage}
-                  delayTime={500}
-                  decoding={"async"}
-                  loading={"lazy"}
-                  customStyle={customStyle}
-                  srcStyle={"lazy-image"}
-                  unloadedSrcStyle={"error-image"}
                 />
               </li>
               )
@@ -192,4 +166,3 @@ export default App;
 | Prop  | Type | Default | Description | Event |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
 | animationRef  | Function  |   | The function is called when image use ```ref```. | element |
-
