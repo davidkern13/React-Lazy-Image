@@ -127,8 +127,8 @@ const App = () => {
     // your code to request and setImages
   }
 
-  const animationRef = (element) => { // add animation to element ref
-    gsap.from(element, {
+  const animationRef = (element) => { 
+    gsap.from(element, { // add animation to element ref
       duration:1,
       autoAlpha: 0,
       ease:'none',
