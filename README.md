@@ -2,11 +2,11 @@
 
 ### Loading lazy image with control of the events and display replacement image is not visible or loaded and utils.
 
-### Using [Live demo (code)](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
+### Live code: [Code](https://codesandbox.io/s/github/davidkern13/React-Lazy-Image) ⚡
 
-### Check [Live action](https://react-lazy-image.netlify.app/) ⚡
+### Live demo: [https://react-lazy-image.netlify.app](https://react-lazy-image.netlify.app) ⚡
 
- [❤️](https://github.com/davidkern13/React-Lazy-Image) it? ⭐️ it on [GitHub](https://github.com/davidkern13/React-Lazy-Image)
+##### [❤️](https://github.com/davidkern13/React-Lazy-Image) it? ⭐️ it on [Github](https://github.com/davidkern13/React-Lazy-Image)
 
 <hr/>
 
