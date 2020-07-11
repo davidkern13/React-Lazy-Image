@@ -21,26 +21,16 @@
 ```
 import React from 'react';
 import LazyImage from "./LazyImage";
-import gsap from 'gsap'; // for use animation
 
+const image = 'image.png';
+const errorImage = 'error-image.png';
+  
 const App = () => {
-
-  const image = 'image.png';
-  const errorImage = 'error-image.png';
 
   const customStyle = {
     width: "50px"
   };
-  
-  const animationRef = (element) => { // add animation to ref element 
-    gsap.from(element, {
-      duration:1,
-      autoAlpha: 0,
-      ease:'none',
-      delay:0.5
-    })
-  };
-  
+
   const afterLoadImage = () => {
     console.log("afterLoadImage");
   };
@@ -88,7 +78,6 @@ export default App;
 | unloadedSrc  | String  |   | Image src to display when image is not visible or loaded. | |
 | src  | String  |   | Image src to display.  | |
 | alt  | String  |   |   | |
-| animationRef  | Function  |   | The function is called when image use ```ref```. | |
 | beforeLoad  | Function  |   | The function is called immediately before the image is loaded. | |
 | afterLoad  | Function  |   | The function is called immediately after the image is uploaded. | |
 | orientation  | Function  |   | The function returns the orientation of the image.  | ```landscape```,```portrait```,```even``` |
@@ -110,3 +99,72 @@ export default App;
 
 - ```lazy```: Tells the user agent to hold off on loading the image until the browser estimates that it will be needed imminently. For instance, if the user is scrolling through the document, a value of lazy will cause the image to only be loaded shortly before it will appear in the window's
 - ```eager```: The default behavior, eager tells the browser to load the image as soon as the <img> element is processed.
+
+<hr/>
+
+### :zap: ```List of LazyImage with Animation``` usage
+
+```
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import gsap from 'gsap'; // animation lib
+
+import LazyImage from "./LazyImage";
+
+const errorImage = 'error-image.png';
+
+const App = () => {
+
+  let [images, setImages] = useState(0);
+
+  const customStyle = {
+    width: "100%"
+  };
+
+  useEffect(() => { // component did mount
+      apiRequest();
+  }, []); 
+
+  const apiRequest = () => {
+    // your code to request and setImages
+  }
+
+  const animationRef = (element) => { 
+    gsap.from(element, { // add animation to element ref
+      duration:1,
+      autoAlpha: 0,
+      ease:'none',
+      delay:0.5
+    })
+  };
+ 
+  return (
+    <div className="App">
+      <ul id={'GridList'}>
+        {
+          Array.isArray(images) && images.map((image, idx) => {
+            return (
+              <li className={'grid-item'} key={idx}>
+                <LazyImage
+                  unloadedSrc={ErrorImage}
+                  src={image.thumbnailUrl}
+                  alt={`react`}
+                  childRef={animationRef} 
+                />
+              </li>
+              )
+          })
+        }
+      </ul>
+    </div>
+  );
+}
+
+export default App;
+```
+
+#### Props
+
+| Prop  | Type | Default | Description | Event |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| animationRef  | Function  | null | The function is called when image use ```ref```. | element |
