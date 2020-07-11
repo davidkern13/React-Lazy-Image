@@ -21,7 +21,8 @@
 ```
 import React from 'react';
 import LazyImage from "./LazyImage";
- 
+import gsap from 'gsap'; // for use animation
+
 const App = () => {
 
   const image = 'image.png';
@@ -30,7 +31,16 @@ const App = () => {
   const customStyle = {
     width: "50px"
   };
-
+  
+  const animationRef = (element) => { // add animation to ref element 
+    gsap.from(element, {
+      duration:1,
+      autoAlpha: 0,
+      ease:'none',
+      delay:0.5
+    })
+  };
+  
   const afterLoadImage = () => {
     console.log("afterLoadImage");
   };
