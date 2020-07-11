@@ -143,11 +143,11 @@ const App = () => {
  
   return (
     <div className="App">
-      <ul id={'GridList'}>
+      <ul>
         {
           Array.isArray(images) && images.map((image, idx) => {
             return (
-              <li className={'grid-item'} key={idx}>
+              <li key={idx}>
                 <LazyImage
                   unloadedSrc={ErrorImage}
                   src={image.thumbnailUrl}
