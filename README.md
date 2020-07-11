@@ -6,13 +6,19 @@
 
 ### Check [Live action](https://react-lazy-image.netlify.app/) ⚡
 
+ [❤️](https://github.com/davidkern13/React-Lazy-Image) it? ⭐️ it on [GitHub](https://github.com/davidkern13/React-Lazy-Image)
+
 <hr/>
 
 ### Features
 
-- Includes one component what containing 2 props of images, ```src``` for image display and ```unloadedSrc``` if image is not visible or loaded.
-- ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef``` events.
-- custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
+🖼 Includes component with props ```src``` for image display and ```unloadedSrc``` to detect image not visible or loaded.
+- Supports multiple function events ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef```.
+- Supports adding ```gsap``` animation.
+- Supports ```debounce``` effect.
+- Custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
+
+⚠️ Most modern browsers support
 
 <hr/>
 
