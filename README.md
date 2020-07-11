@@ -89,7 +89,7 @@ export default App;
 | srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 | unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
 
-##### ⚡ ```Check bellow how add Animation to LazyImage```
+##### 📚 ```Check bellow how add Animation to LazyImage```
 
 ##### Using prop decoding
 
