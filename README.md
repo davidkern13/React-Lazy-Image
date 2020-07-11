@@ -57,7 +57,7 @@ const App = () => {
         afterLoad={afterLoadImage}
         orientation={orientationImage}
         errorLoad={errorImage}
-        delayTime={500}
+        delayTime={500} // Default is 300 (ms)
         decoding={"async"}
         loading={"lazy"}
         customStyle={customStyle}
