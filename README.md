@@ -191,5 +191,5 @@ export default App;
 
 | Prop  | Type | Default | Description | Event |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| animationRef  | Function  |   | The function is called when image use ```ref```. | |
+| animationRef  | Function  |   | The function is called when image use ```ref```. | element |
 
