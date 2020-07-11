@@ -59,7 +59,6 @@ const LazyImage = (props) => {
     setTimeout(function() {
       img.src = src;
     }, delayTime);
-    
 
   }, [afterLoad, beforeLoad, decoding, delayTime, errorLoad, orientation, src]);
 

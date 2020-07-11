@@ -21,7 +21,7 @@ const App = () => {
     return () => {
       apiRequest();
     };
-  }, []); 
+  }, []);
 
   const apiRequest = () =>{
     axios
@@ -34,10 +34,10 @@ const App = () => {
       duration:1,
       autoAlpha: 0,
       ease:'none',
-      delay:0.5
+      delay:0.3,
+      webkitFilter:"blur(0.1)"
     })
   };
-
 
   const afterLoadImage = () => {
     // your code
@@ -71,7 +71,7 @@ const App = () => {
                   afterLoad={afterLoadImage}
                   orientation={orientationImage}
                   errorLoad={errorImage}
-                  delayTime={500}
+                  delayTime={300}
                   decoding={"async"}
                   loading={"lazy"}
                   customStyle={customStyle}
