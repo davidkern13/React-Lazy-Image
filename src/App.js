@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from 'axios';
+import gsap from 'gsap';
 
 import LazyImage from "./LazyImage";
 
@@ -11,12 +12,15 @@ const App = () => {
 
   let [images, setImages] = useState(0);
 
+  const customStyle = {
+    width: "100%"
+  };
+
   useEffect(() => {
       apiRequest();
     return () => {
       apiRequest();
     };
-
   }, []);
 
   const apiRequest = () =>{
@@ -25,9 +29,15 @@ const App = () => {
       .then(response => setImages(response.data.slice(0, 8)));
   }
 
-  const customStyle = {
-    width: "100%"
+  const animationRef = (element) => {
+    gsap.from(element, {
+      duration:1,
+      autoAlpha: 0,
+      ease:'none',
+      delay:0.5
+    })
   };
+
 
   const afterLoadImage = () => {
     // your code
@@ -56,6 +66,7 @@ const App = () => {
                   unloadedSrc={ErrorImage}
                   src={image.thumbnailUrl}
                   alt={`react`}
+                  childRef={animationRef} 
                   beforeLoad={beforeLoadImage}
                   afterLoad={afterLoadImage}
                   orientation={orientationImage}

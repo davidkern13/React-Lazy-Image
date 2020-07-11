@@ -1,9 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Img = ({ src = "", alt = "", classStyle = "", loading, customStyle }) => (
-  <img src={src} alt={alt} className={classStyle} style={customStyle} loading={loading}/>
-);
+
+ 
+const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, customStyle},  ref) => {
+
+  if(!Object.keys(ref).length){
+    return <img src={src} alt={alt} className={classStyle} style={customStyle} loading={loading} ref={ref}/> ;
+  }else{
+    return <img src={src} alt={alt} className={classStyle} style={customStyle} loading={loading}/>;
+  }
+
+});
 
 Img.propTypes = {
   src: PropTypes.string.isRequired,

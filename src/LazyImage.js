@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import Img from "./Image";
 import { imageOrientation } from "./utils";
 
-function LazyImage(props) {
+const LazyImage = (props) => {
 
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -16,6 +16,7 @@ function LazyImage(props) {
     src,
     unloadedSrc,
     alt,
+    childRef,
     beforeLoad,
     afterLoad,
     orientation,
@@ -72,9 +73,9 @@ function LazyImage(props) {
   return (
     <>
       {error || !loaded ? (
-        <Img src={unloadedSrc} loading={loading || LOADING} alt={alt} classStyle={unloadedSrcStyleClass} customStyle={getCustomStyle(customStyle)} />
+        <Img src={unloadedSrc} loading={loading || LOADING} alt={alt} classStyle={unloadedSrcStyleClass} customStyle={getCustomStyle(customStyle)} ref={childRef || null}/>
       ) : (
-        <Img src={src} loading={loading || LOADING} alt={alt} classStyle={srcStyleClass} customStyle={getCustomStyle(customStyle)} />
+        <Img src={src} loading={loading || LOADING} alt={alt} classStyle={srcStyleClass} customStyle={getCustomStyle(customStyle)} ref={childRef || null}/>
       )}
     </>
   );
@@ -84,6 +85,7 @@ LazyImage.propTypes = {
   src: PropTypes.string,
   unloadedSrc: PropTypes.string,
   alt: PropTypes.string,
+  childRef: PropTypes.func,
   beforeLoad: PropTypes.func,
   afterLoad: PropTypes.func,
   orientation: PropTypes.func,
@@ -99,6 +101,7 @@ LazyImage.defaultProps = {
   src: "",
   unloadedSrc: "",
   alt: "",
+  childRef: () => ({}),
   afterLoad: () => ({}),
   beforeLoad: () => ({}),
   orientation: () => ({}),
@@ -110,4 +113,4 @@ LazyImage.defaultProps = {
   unloadedSrcStyle: ""
 };
 
-export default LazyImage;
+export default React.memo(LazyImage);
