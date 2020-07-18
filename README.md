@@ -18,7 +18,7 @@
 - Supports ```debounce``` effect.
 - Supports modern browsers.
 - Supports ```progresive image``` feature.
-- Custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
+- Custom style class names for ```styleClass``` props.
 
 <hr/>
 
@@ -92,7 +92,7 @@ export default App;
 | decoding  | String  | "async"  | Name of the ```decoding``` props types to use ```sync```, ```async```, ```auto```. read the next line below  how to use them  | |
 | loading  | String  | "lazy"  | Name of the ```loading``` props types to use ```lazy```, ```eager```. read the next line below  how to use them  | |
 | customStyle  | Object  | null  | Props customStyle style passed to inline of image.  | |
-| srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
+| styleClass  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
 
 ##### Using prop decoding
 
