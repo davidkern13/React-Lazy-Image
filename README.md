@@ -16,7 +16,7 @@
 - Supports multiple function events ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef```.
 - Supports adding ```gsap``` animation.
 - Supports ```debounce``` effect.
-⚠️ Supports modern browsers.
+- Supports modern browsers.
 - #### Supports progresive image feature.
 - Custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
 
