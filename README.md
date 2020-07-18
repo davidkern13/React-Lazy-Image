@@ -16,9 +16,9 @@
 - Supports multiple function events ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef```.
 - Supports adding ```gsap``` animation.
 - Supports ```debounce``` effect.
+⚠️ Supports modern browsers.
+- #### Supports progresive image feature.
 - Custom style class names for ```srcStyle``` and ```unloadedSrcStyle``` props.
-
-⚠️ Most modern browsers support
 
 <hr/>
 
@@ -56,19 +56,19 @@ const App = () => {
   return (
     <div>
       <LazyImage
-        unloadedSrc={errorImage}
-        src={image}
-        alt={`image`}
+        placeholder={ErrorImage}
+        src={image.download_url}
+        alt={`react`}
         beforeLoad={beforeLoadImage}
         afterLoad={afterLoadImage}
         orientation={orientationImage}
         errorLoad={errorImage}
-        delayTime={500} // Default is 300 (ms)
+        delayTime={300}
         decoding={"async"}
         loading={"lazy"}
+        noscript={true}
         customStyle={customStyle}
-        srcStyle={"lazy-image"}
-        unloadedSrcStyle={"error-image"}
+        styleClass={"lazy-image"}
       />
     </div>
   );
@@ -77,11 +77,15 @@ const App = () => {
 export default App;
 ```
 
+📚 ### API
+
+<hr />
+
 #### Props
 
 | Prop  | Type | Default | Description | Event |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| unloadedSrc  | String  |   | Image src to display when image is not visible or loaded. | |
+| placeholder  | String  |   | Image src to display when image is not visible or loaded. | |
 | src  | String  |   | Image src to display.  | |
 | alt  | String  |   |   | |
 | beforeLoad  | Function  |   | The function is called immediately before the image is loaded. | |
@@ -93,9 +97,6 @@ export default App;
 | loading  | String  | "lazy"  | Name of the ```loading``` props types to use ```lazy```, ```eager```. read the next line below  how to use them  | |
 | customStyle  | Object  | null  | Props customStyle style passed to inline of image.  | |
 | srcStyle  | String  |   | Custom ```classStyle``` of ```src``` image.  | |
-| unloadedSrcStyle  | String  |   | Custom ```classStyle``` of ```unloadedSrc``` image.  | |
-
-##### 📚 ```Check bellow how add Animation to LazyImage```
 
 ##### Using prop decoding
 
@@ -110,70 +111,3 @@ export default App;
 
 <hr/>
 
-### 📚 ```List of LazyImage with Animation``` usage
-
-```
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
-import gsap from 'gsap'; // animation lib
-
-import LazyImage from "./LazyImage";
-
-const errorImage = 'error-image.png';
-
-const App = () => {
-
-  let [images, setImages] = useState(0);
-
-  const customStyle = {
-    width: "100%"
-  };
-
-  useEffect(() => { // component did mount
-      apiRequest();
-  }, []); 
-
-  const apiRequest = () => {
-    // your code to request and setImages
-  }
-
-  const animationRef = (element) => { 
-    gsap.from(element, { // add animation to element ref
-      duration: 1,
-      autoAlpha: 0,
-      ease: 'none',
-      delay: 0.5,
-      webkitFilter: "blur(0.1)"
-    })
-  };
- 
-  return (
-    <div className="App">
-      <ul>
-        {
-          Array.isArray(images) && images.map((image, idx) => {
-            return (
-              <li key={idx}>
-                <LazyImage
-                  unloadedSrc={ErrorImage}
-                  src={image.thumbnailUrl}
-                  alt={`react`}
-                  childRef={animationRef} 
-                />
-              </li>
-            )
-          })
-        }
-      </ul>
-    </div>
-  );
-}
-
-export default App;
-```
-
-#### Props
-
-| Prop  | Type | Default | Description | Event |
-| ------------- | ------------- | ------------- | ------------- | ------------- |
-| animationRef  | Function  |  | The function is called when image use ```ref```. | element |
