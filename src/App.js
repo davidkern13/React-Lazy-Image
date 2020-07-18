@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import gsap from 'gsap';
 
 import LazyImage from "./LazyImage";
 
@@ -25,42 +24,26 @@ const App = () => {
 
   const apiRequest = () =>{
     axios
-      .get("https://picsum.photos/v2/list?page=1&limit=20")
+      .get("https://picsum.photos/v2/list?page=13&limit=40")
       .then(response => setImages(response.data));
   }
 
-  const animationRef = (element) => {
-    if(element?.src && element?.src !== ErrorImage){
-      gsap.from(element, {
-        duration:1,
-        autoAlpha: 0,
-        ease:'none',
-        delay:0.3,
-        webkitFilter:"blur(0.1)"
-      })
-    }
-  };
-
-  const afterLoadImage = () => {
+  const afterLoadImage = element => {
     // your code
-    
   };
 
   const beforeLoadImage = () => {
     // your code
-   
   };
 
-  const orientationImage = e => {
+  const orientationImage = event => {
     // your code
-  
   };
 
-  const errorImage = e => {
+  const errorImage = event => {
     // your code
-    
   };
- 
+
   return (
     <div className="App">
       <ul id={'GridList'}>
@@ -69,21 +52,19 @@ const App = () => {
             return (
               <li className={'grid-item'} key={idx}>
                 <LazyImage
-                  unloadedSrc={ErrorImage}
+                  placeholder={ErrorImage}
                   src={image.download_url}
                   alt={`react`}
-                  childRef={animationRef} 
                   beforeLoad={beforeLoadImage}
                   afterLoad={afterLoadImage}
                   orientation={orientationImage}
                   errorLoad={errorImage}
-                  delayTime={0}
+                  delayTime={300}
                   decoding={"async"}
                   loading={"lazy"}
                   noscript={true}
                   customStyle={customStyle}
-                  srcStyle={"lazy-image"}
-                  unloadedSrcStyle={"error-image"}
+                  styleClass={"lazy-image"}
                 />
               </li>
             )

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
  
-const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, customStyle, noscript}, ref) => {
+const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, customStyle, noscript, placeholder}, ref) => {
 
   let refExist = !Object.keys(ref).length ? ref : null;
 
@@ -10,10 +10,11 @@ const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, cu
       <img 
         src={src} 
         alt={alt} 
-        className={classStyle} 
+        className={[classStyle, 'lazy'].join(' ')} 
         style={customStyle} 
         loading={loading} 
         ref={refExist}
+        data-src={placeholder}
       /> 
 
       {/* For SEO and JavaScript unavailable */}
@@ -30,8 +31,6 @@ const Img = React.forwardRef(({ src = "", alt = "", classStyle = "", loading, cu
       
     </>
   );
-
-
 });
 
 Img.propTypes = {

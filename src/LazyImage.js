@@ -1,102 +1,82 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, memo } from "react";
 import { PropTypes } from "prop-types";
 
+import gsap from 'gsap';
+
 import Img from "./Image";
+import useObserver from "./useObserver";
 import { imageOrientation } from "./utils";
+
+const DECODING = "async";
+const LOADING = "lazy";
+const ERROR_LOAD = "💡 Error occurred while loading image";
 
 const LazyImage = (props) => {
 
-  const [loaded, setLoaded] = useState(false);
-  const [error, setError] = useState(false);
-
-  const DECODING = "async";
-  const LOADING = "lazy";
-
   let {
+    placeholder,
     src,
-    unloadedSrc,
     alt,
-    childRef,
     beforeLoad,
     afterLoad,
     orientation,
     errorLoad,
-    delayTime = 300,
-    decoding = DECODING,
-    loading = LOADING,
+    delayTime,
+    decoding,
+    loading,
     noscript,
     customStyle,
-    srcStyleClass,
-    unloadedSrcStyleClass
+    styleClass
   } = props;
 
+  let debounce = {debounce: delayTime || 300}
+
+  const [setElement, lazyImageRef] = useObserver(debounce);
+  
   useEffect(() => {
-    if (beforeLoad) {
-      beforeLoad();
-    }
-    
-    let img = new Image();
+    checkImageRef(lazyImageRef);
+    return () => { checkImageRef(lazyImageRef) }
+  });
+
+  const checkImageRef = img => {
+    if(!img) return;
+    beforeLoad();
     img.decoding = decoding || DECODING;
-
-    img.onload = () => {
-      setLoaded(true);
-
-      if (afterLoad) {
-        afterLoad();
-      }
-
-      if (orientation) {
-        orientation(checkLandscape(img));
-      }
-    };
-    img.onerror = () => {
-      setError(true);
-      if (errorLoad) {
-        errorLoad();
-      }
-    };
-
-    setTimeout(function() {
-      img.src = src;
-    }, delayTime);
-
-  }, [afterLoad, beforeLoad, decoding, delayTime, errorLoad, orientation, src]);
-
-  const checkLandscape = img => {
-    return imageOrientation(img);
+    img.onload = (e) => loadHandle(e);
+    img.onerror = (e) => errorHandle(e);
   };
 
-  const getCustomStyle = style => {
-    return style ? style : null;
+  const loadHandle = e => {
+    let { path : [img] } = e;
+    if(img.src && img.src !== placeholder) {
+      gsapAnimation(img);
+      if (afterLoad) afterLoad(img);
+      if (orientation) orientation(checkLandscape(img));
+    }     
   };
 
-  const refitem = el => {
-    childRef(el);
+  const errorHandle = e => {
+    let { path : [img] } = e;
+    if(img) img.src = placeholder;
+    if (errorLoad) errorLoad(ERROR_LOAD);
   };
 
+  const checkLandscape = img => imageOrientation(img);
+  const getCustomStyle = style => style ? style : null;
+  const gsapAnimation = (img) => gsap.from(img, 0.7,{css:{opacity:0}, ease : 'easeInOut'});
+  
   return (
     <>
-      {error || !loaded ? (
         <Img 
-          src={unloadedSrc}
+          src={placeholder}
+          placeholder={src}
           loading={loading || LOADING}
           alt={alt}
-          classStyle={unloadedSrcStyleClass}
+          classStyle={styleClass}
           customStyle={getCustomStyle(customStyle)}
-          ref={refitem || null}
+          ref={setElement}
           noscript={noscript}
         />
-      ) : (
-        <Img 
-          src={src}
-          loading={loading || LOADING}
-          alt={alt}
-          classStyle={srcStyleClass}
-          customStyle={getCustomStyle(customStyle)}
-          ref={refitem || null}
-          noscript={noscript}
-        />
-      )}
     </>
   );
 }
@@ -105,7 +85,6 @@ LazyImage.propTypes = {
   src: PropTypes.string,
   unloadedSrc: PropTypes.string,
   alt: PropTypes.string,
-  childRef: PropTypes.func,
   beforeLoad: PropTypes.func,
   afterLoad: PropTypes.func,
   orientation: PropTypes.func,
@@ -113,15 +92,13 @@ LazyImage.propTypes = {
   delayTime: PropTypes.number,
   decoding: PropTypes.string,
   loading: PropTypes.string,
-  srcStyle: PropTypes.string,
-  unloadedSrcStyle: PropTypes.string
+  styleClass: PropTypes.string
 };
 
 LazyImage.defaultProps = {
   src: "",
   unloadedSrc: "",
   alt: "",
-  childRef: () => null,
   afterLoad: () => ({}),
   beforeLoad: () => ({}),
   orientation: () => ({}),
@@ -129,8 +106,7 @@ LazyImage.defaultProps = {
   delayTime: 300,
   decoding: "",
   loading: "",
-  srcStyle: "",
-  unloadedSrcStyle: ""
+  styleClass: ""
 };
 
-export default React.memo(LazyImage);
+export default memo(LazyImage);
