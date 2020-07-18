@@ -17,7 +17,7 @@
 - Supports  ```gsap``` animation.
 - Supports ```debounce``` effect.
 - Supports modern browsers.
-- Supports ```progressive image``` feature.
+- Supports ```progressive image``` optimization.
 - Custom style class names for ```styleClass``` props.
 
 <hr/>
