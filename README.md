@@ -77,10 +77,6 @@ const App = () => {
 export default App;
 ```
 
-📚 ### API
-
-<hr />
-
 #### Props
 
 | Prop  | Type | Default | Description | Event |
