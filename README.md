@@ -14,7 +14,7 @@
 
 🖼 Includes component with props ```src``` for image display and ```unloadedSrc``` to detect image not visible or loaded.
 - Supports multiple function events ```beforeLoad```, ```afterLoad```, ```orientation```, ```errorLoad```, ```animationRef```.
-- Supports adding ```gsap``` animation.
+- Supports  ```gsap``` animation.
 - Supports ```debounce``` effect.
 - Supports modern browsers.
 - Supports ```progresive image``` feature.
